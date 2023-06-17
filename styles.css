@@ -2,14 +2,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa;
-  color: #212529;
+  background-color: #f0f0f0;
 }
 
 header {
-  background-color: #343a40;
+  background-color: #333;
   color: #fff;
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
 }
 
@@ -17,50 +16,23 @@ section {
   margin: 20px;
 }
 
-h2 {
-  color: #6c757d;
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 10px;
+.population {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  width: 50%;        
+}
+
+.rectangle {
+  background-color: #88f;
+  margin-bottom: 20px;
 }
 
 .rectangle-container {
   display: flex;
-  align-items: flex-end;  /* Makes the rectangles align at the bottom */
-  height: 200px;          /* Fixed height to create a common vertical axis */
-  margin-bottom: 20px;
-}
-
-.rectangle {
-  background-color: #007bff;
-  margin-right: 20px;     /* Space between the rectangles */
-  width: 20%;             /* You may need to adjust this depending on the actual population sizes */
-}
-
-
-.population {
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-  border-radius: .25rem;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  justify-content: space-around;
 }
 
 button {
-  background-color: #007bff;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 20px 0;
-  cursor: pointer;
-  border-radius: .25rem;
-  transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-button:hover {
-  background-color: #0056b3;
+  margin-top: 20px;
 }
