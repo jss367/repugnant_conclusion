@@ -23,10 +23,19 @@ h2 {
   padding-bottom: 10px;
 }
 
+.rectangle-container {
+  display: flex;
+  align-items: flex-end;  /* Makes the rectangles align at the bottom */
+  height: 200px;          /* Fixed height to create a common vertical axis */
+  margin-bottom: 20px;
+}
+
 .rectangle {
   background-color: #007bff;
-  margin: 20px 0;
+  margin-right: 20px;     /* Space between the rectangles */
+  width: 20%;             /* You may need to adjust this depending on the actual population sizes */
 }
+
 
 .population {
   background-color: #fff;

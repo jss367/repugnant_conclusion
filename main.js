@@ -34,10 +34,9 @@ function displayChoices() {
   }
 }
 
-
 // Function to handle the user's choice
 function handleChoice(choice) {
-  alert(`You chose ${choice.name}, which has a quality of life rating of ${choice.quality} and a population of ${choice.quantity}.`);
+  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a quality of life rating of ${choice.quality} and a population of ${choice.quantity}.`;
 
   // Generate the new populations
   populations = [
@@ -58,6 +57,7 @@ function handleChoice(choice) {
   // Update the display
   displayChoices();
 }
+
 
 // Call the displayChoices function when the page loads
 window.onload = displayChoices;
