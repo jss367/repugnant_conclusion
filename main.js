@@ -13,31 +13,20 @@ let populations = [
       quality: 5
   }
 ];
-
 // Function to display the population choices to the user
 function displayChoices() {
-  const simulationSection = document.getElementById('simulation');
-
-  // Clear the previous choices
-  simulationSection.innerHTML = '';
-
   for (let i = 0; i < populations.length; i++) {
       let population = populations[i];
 
-      // Create a new div for this population
-      let populationDiv = document.createElement('div');
+      // Update the name, description, and button
+      document.getElementById(`name${String.fromCharCode(65 + i)}`).innerText = population.name;
+      document.getElementById(`description${String.fromCharCode(65 + i)}`).innerText = population.description;
+      document.getElementById(`choose${String.fromCharCode(65 + i)}`).addEventListener('click', () => handleChoice(population));
 
-      // Add the name and description
-      populationDiv.innerHTML = `<h3>${population.name}</h3><p>${population.description}</p>`;
-
-      // Add a button that the user can click to choose this population
-      let chooseButton = document.createElement('button');
-      chooseButton.innerText = 'Choose this population';
-      chooseButton.addEventListener('click', () => handleChoice(population));
-      populationDiv.appendChild(chooseButton);
-
-      // Add the population div to the simulation section
-      simulationSection.appendChild(populationDiv);
+      // Update the rectangle
+      let rectangle = document.getElementById(`rectangle${String.fromCharCode(65 + i)}`);
+      rectangle.style.width = `${population.quantity / 100}px`;
+      rectangle.style.height = `${population.quality * 10}px`;
   }
 }
 

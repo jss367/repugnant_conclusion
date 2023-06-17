@@ -15,3 +15,8 @@ header {
 section {
     margin: 20px;
 }
+
+.rectangle {
+  background-color: #88f;
+  margin-bottom: 20px;
+}
