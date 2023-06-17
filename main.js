@@ -27,8 +27,13 @@ function displayChoices() {
       let rectangle = document.getElementById(`rectangle${String.fromCharCode(65 + i)}`);
       rectangle.style.width = `${population.quantity / 100}px`;
       rectangle.style.height = `${population.quality * 10}px`;
+
+      // Update the quality and quantity values
+      document.getElementById(`quality${String.fromCharCode(65 + i)}`).innerText = population.quality;
+      document.getElementById(`quantity${String.fromCharCode(65 + i)}`).innerText = population.quantity;
   }
 }
+
 
 // Function to handle the user's choice
 function handleChoice(choice) {
