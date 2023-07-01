@@ -48,9 +48,6 @@ function displayChoices() {
 
 // Function to handle the user's choice
 function handleChoice(choice) {
-  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}.`;
-
-  // Generate the next universe
   let lastUniverseLetter = choice.name.slice(-1);
   let nextUniverseLetter = String.fromCharCode(lastUniverseLetter.charCodeAt(0) + 1);
   let newNumPpl, newHappiness;
@@ -72,8 +69,12 @@ function handleChoice(choice) {
   universes = [choice, newUniverse];
   
   // Update the display
-  displayChoices();
+  displayUniverses();
+
+  // Then we can update the choiceDisplay text
+  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a population of ${choice.populations.reduce((a, b) => a + b.quantity, 0)} and a welfare of ${choice.populations.reduce((a, b) => a + b.welfare, 0)}.`;
 }
+
 
 // Call the displayChoices function when the page loads
 window.onload = displayChoices;
