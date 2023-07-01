@@ -57,3 +57,7 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+.rectangle {
+  margin-bottom: 5px; /* This is the space between the bars */
+}
