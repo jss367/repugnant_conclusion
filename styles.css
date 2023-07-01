@@ -36,3 +36,9 @@ section {
 button {
   margin-top: 20px;
 }
+
+#populationsContainer {
+  display: flex;
+  justify-content: space-between; /* Distributes the items evenly across the container */
+  flex-wrap: wrap; /* Allows the items to wrap onto multiple lines if necessary (for responsiveness) */
+}
