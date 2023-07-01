@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive Simulation - Exploring Parfit's Repugnant Conclusion</title>
+    <title>Exploring Parfit's Repugnant Conclusion</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
 </head>
 <body>
     <header>
-        <h1>Interactive Simulation - Exploring Parfit's Repugnant Conclusion</h1>
+        <h1>Exploring Parfit's Repugnant Conclusion</h1>
     </header>
 
     <section id="simulation">
         <h2>Interactive Simulation</h2>
-        <div id="populationsContainer">
-        <div class="population" id="populationA">
+        <div class="universe" id="universeA">
             <h3 id="nameA"></h3>
             <p id="descriptionA"></p>
-            <div class="rectangle-container">
-                <div class="rectangle" id="rectangleA"></div>
+            <div class="rectangle-container" id="rectangle-containerA">
+                <div class="rectangle" id="rectangleA1"></div>
             </div>
-            <p>Quality: <span id="qualityA"></span></p>
-            <p>Quantity: <span id="quantityA"></span></p>
-            <button id="chooseA">Choose this population</button>
+            <p>Welfare: <span id="welfareA1"></span></p>
+            <p>Quantity: <span id="quantityA1"></span></p>
+            <button id="chooseA">Choose this universe</button>
         </div>
         
-        <div class="population" id="populationB">
+        <div class="universe" id="universeB">
             <h3 id="nameB"></h3>
             <p id="descriptionB"></p>
-            <div class="rectangle-container">
-                <div class="rectangle" id="rectangleB"></div>
+            <div class="rectangle-container" id="rectangle-containerB">
+                <div class="rectangle" id="rectangleB1"></div>
             </div>
-            <p>Quality: <span id="qualityB"></span></p>
-            <p>Quantity: <span id="quantityB"></span></p>
-            <button id="chooseB">Choose this population</button>
+            <p>Welfare: <span id="welfareB1"></span></p>
+            <p>Quantity: <span id="quantityB1"></span></p>
+            <button id="chooseB">Choose this universe</button>
         </div>
-    </div>
+        
         <p id="choiceDisplay"></p>
     </section>
-
-    <a href="index.html">Go back to the introduction</a>
 </body>
 </html>

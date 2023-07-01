@@ -1,63 +1,69 @@
 // Initialize the populations
-let populations = [
-  {
-      name: "Population A",
-      description: "This population is smaller but has a high quality of life...",
-      quantity: 1000,
-      quality: 9
-  },
-  {
-      name: "Population B",
-      description: "This population is larger but has a lower quality of life...",
-      quantity: 5000,
-      quality: 5
-  }
+let universes = [
+  [
+    {
+        name: "Group A1",
+        quantity: 10,
+        welfare: 100
+    }
+  ],
+  [
+    {
+        name: "Group B1",
+        quantity: 10,
+        welfare: 100
+    },
+    {
+        name: "Group B2",
+        quantity: 20,
+        welfare: 90
+    }
+  ]
 ];
-// Function to display the population choices to the user
+
+// Function to display the universe choices to the user
 function displayChoices() {
-  for (let i = 0; i < populations.length; i++) {
-      let population = populations[i];
-
+  for (let i = 0; i < universes.length; i++) {
+      let universe = universes[i];
+      let universeName = String.fromCharCode(65 + i);
+      let universeDescription = "This universe contains the following groups:\n";
+      
+      universe.forEach((population, index) => {
+        universeDescription += `${population.name}: ${population.quantity} people, welfare ${population.welfare}\n`;
+        
+        // Update the rectangle
+        let rectangle = document.getElementById(`rectangle${universeName}${index + 1}`);
+        rectangle.style.width = `${population.quantity}px`;
+        rectangle.style.height = `${population.welfare}px`;
+        
+        // Update the welfare and quantity values
+        document.getElementById(`welfare${universeName}${index + 1}`).innerText = population.welfare;
+        document.getElementById(`quantity${universeName}${index + 1}`).innerText = population.quantity;
+      });
+      
       // Update the name, description, and button
-      document.getElementById(`name${String.fromCharCode(65 + i)}`).innerText = population.name;
-      document.getElementById(`description${String.fromCharCode(65 + i)}`).innerText = population.description;
-      document.getElementById(`choose${String.fromCharCode(65 + i)}`).addEventListener('click', () => handleChoice(population));
-
-      // Update the rectangle
-      let rectangle = document.getElementById(`rectangle${String.fromCharCode(65 + i)}`);
-      rectangle.style.width = `${population.quantity / 100}px`;
-      rectangle.style.height = `${population.quality * 10}px`;
-
-      // Update the quality and quantity values
-      document.getElementById(`quality${String.fromCharCode(65 + i)}`).innerText = population.quality;
-      document.getElementById(`quantity${String.fromCharCode(65 + i)}`).innerText = population.quantity;
+      document.getElementById(`name${universeName}`).innerText = `Universe ${universeName}`;
+      document.getElementById(`description${universeName}`).innerText = universeDescription;
+      document.getElementById(`choose${universeName}`).addEventListener('click', () => handleChoice(universe));
   }
 }
 
 // Function to handle the user's choice
 function handleChoice(choice) {
-  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a quality of life rating of ${choice.quality} and a population of ${choice.quantity}.`;
-
-  // Generate the new populations
-  populations = [
-      {
-          name: "Population A",
-          description: "This population is smaller but has a high quality of life...",
-          quantity: choice.quantity - 1,
-          quality: choice.quality + 1
-      },
-      {
-          name: "Population B",
-          description: "This population is larger but has a lower quality of life...",
-          quantity: choice.quantity + 1,
-          quality: choice.quality - 1
-      }
-  ];
+  document.getElementById('choiceDisplay').innerText = `You chose a universe with ${choice.length} groups.`;
+  
+  // Generate the new universe
+  let newUniverse = JSON.parse(JSON.stringify(choice)); // Create a deep copy of the last universe
+  newUniverse.push({
+    name: `Group ${String.fromCharCode(67 + universes.length % 26)}1`,
+    quantity: choice[0].quantity * 2,
+    welfare: choice[0].welfare - 10
+  });
+  universes.push(newUniverse);
 
   // Update the display
   displayChoices();
 }
-
 
 // Call the displayChoices function when the page loads
 window.onload = displayChoices;
