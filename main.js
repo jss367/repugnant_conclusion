@@ -12,7 +12,8 @@ let universes = [
 // Function to display the universe choices to the user
 function displayUniverses() {
   // Clear previous display
-  document.getElementById('simulation').innerHTML = '';
+  document.getElementById('universe-container').innerHTML = '';
+  
   
   for (let i = 0; i < universes.length; i++) {
       let universe = universes[i];
