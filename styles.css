@@ -28,10 +28,10 @@ section {
   margin-bottom: 20px;
 }
 
-.rectangle-container {
+/* .rectangle-container {
   display: flex;
   justify-content: space-around;
-}
+} */
 
 button {
   margin-top: 20px;
@@ -41,4 +41,19 @@ button {
   display: flex;
   justify-content: space-between; /* Distributes the items evenly across the container */
   flex-wrap: wrap; /* Allows the items to wrap onto multiple lines if necessary (for responsiveness) */
+}
+
+
+.universe-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.universe {
+  width: 45%;
+}
+
+.rectangle-container {
+  display: flex;
+  flex-direction: column;
 }
