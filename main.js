@@ -10,7 +10,7 @@ let universes = [
 ];
 
 // Function to display the universe choices to the user
-function displayChoices() {
+function displayUniverses() {
   // Clear previous display
   document.getElementById('simulation').innerHTML = '';
   
@@ -44,6 +44,10 @@ function displayChoices() {
           document.getElementById(`rectangle-container${i}`).appendChild(rectangle);
       }
   }
+
+  // Update choiceDisplay text after new universes have been displayed
+  let choice = universes[0];  // The choice is always the first universe in the list
+  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a population of ${choice.populations.reduce((a, b) => a + b.quantity, 0)} and a welfare of ${choice.populations.reduce((a, b) => a + b.welfare, 0)}.`;
 }
 
 // Function to handle the user's choice
@@ -63,18 +67,4 @@ function handleChoice(choice) {
   
   let newUniverse = {
     name: `Universe ${nextUniverseLetter}`,
-    description: `Universe ${nextUniverseLetter} includes a group of people with welfare...`,
-    populations: newNumPpl.map((quantity, index) => ({quantity: quantity, welfare: newHappiness[index]}))
-  };
-  universes = [choice, newUniverse];
-  
-  // Update the display
-  displayUniverses();
-
-  // Then we can update the choiceDisplay text
-  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a population of ${choice.populations.reduce((a, b) => a + b.quantity, 0)} and a welfare of ${choice.populations.reduce((a, b) => a + b.welfare, 0)}.`;
-}
-
-
-// Call the displayChoices function when the page loads
-window.onload = displayChoices;
+    description: `Universe ${nextUniverseLetter} includes a group of people with welfare
