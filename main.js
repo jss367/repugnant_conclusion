@@ -6,8 +6,17 @@ let universes = [
       populations: [
         {quantity: 10, welfare: 100}
       ]
+  },
+  {
+      name: "Universe B",
+      description: "Universe B includes a group of people with moderate welfare...",
+      populations: [
+        {quantity: 10, welfare: 100},
+        {quantity: 20, welfare: 90}
+      ]
   }
 ];
+
 
 // Function to display the universe choices to the user
 function displayUniverses() {
