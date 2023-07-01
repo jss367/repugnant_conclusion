@@ -61,3 +61,9 @@ button {
 .rectangle {
   margin-bottom: 5px; /* This is the space between the bars */
 }
+
+#simulation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
