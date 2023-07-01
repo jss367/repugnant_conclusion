@@ -50,20 +50,27 @@ function displayChoices() {
 
 // Function to handle the user's choice
 function handleChoice(choice) {
-  document.getElementById('choiceDisplay').innerText = `You chose a universe with ${choice.length} groups.`;
-  
-  // Generate the new universe
-  let newUniverse = JSON.parse(JSON.stringify(choice)); // Create a deep copy of the last universe
-  newUniverse.push({
-    name: `Group ${String.fromCharCode(67 + universes.length % 26)}1`,
-    quantity: choice[0].quantity * 2,
-    welfare: choice[0].welfare - 10
-  });
-  universes.push(newUniverse);
+  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a high welfare group of ${choice.populations[0].quantity} people and a lower welfare group of ${choice.populations[1].quantity} people.`;
 
+  // Generate the next universe to be displayed after the chosen universe
+  if(choice.name !== 'Universe A') {
+    let lastUniverseLetter = choice.name.slice(-1);
+    let nextUniverseLetter = String.fromCharCode(lastUniverseLetter.charCodeAt(0) + 1);
+    let newUniverse = {
+      name: `Universe ${nextUniverseLetter}`,
+      description: `Universe ${nextUniverseLetter} is a larger population with slightly lower welfare...`,
+      populations: [
+        {quantity: choice.populations[0].quantity + choice.populations[1].quantity, welfare: choice.populations[1].welfare - 5}
+      ]
+    };
+    
+    populations = [choice, newUniverse];
+  }
+  
   // Update the display
   displayChoices();
 }
+
 
 // Call the displayChoices function when the page loads
 window.onload = displayChoices;
