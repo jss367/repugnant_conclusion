@@ -67,4 +67,14 @@ function handleChoice(choice) {
   
   let newUniverse = {
     name: `Universe ${nextUniverseLetter}`,
-    description: `Universe ${nextUniverseLetter} includes a group of people with welfare
+    description: `Universe ${nextUniverseLetter} includes a group of people with welfare...`,
+    populations: newNumPpl.map((quantity, index) => ({quantity: quantity, welfare: newHappiness[index]}))
+  };
+  universes = [choice, newUniverse];
+
+  // Update the display
+  displayUniverses();
+}
+
+// Call the displayUniverses function when the page loads
+window.onload = displayUniverses;
