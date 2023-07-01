@@ -74,7 +74,12 @@ function handleChoice(choice) {
 
   // Update the display
   displayUniverses();
+
+  document.getElementById('choiceDisplay').innerText = `You chose ${choice.name}, which has a population of ${choice.populations.reduce((a, b) => a + b.quantity, 0)} and a welfare of ${choice.populations.reduce((a, b) => a + b.welfare, 0)}.`;
 }
 
-// Call the displayUniverses function when the page loads
-window.onload = displayUniverses;
+window.onload = function() {
+  displayUniverses();
+  let choiceButton = document.getElementById(`choose0`); // Get the first choice button
+  choiceButton.addEventListener('click', () => handleChoice(universes[0])); // Add event listener to the first choice button
+}
